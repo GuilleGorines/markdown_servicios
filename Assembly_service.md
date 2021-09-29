@@ -84,6 +84,8 @@ This first lablog will create the following elements:
 * <span style="color:#191970 ;">00-reads</span>: directory where the trimmed reads will be stored. 
 * <span style="color: #191970;">$(date '+%Y%m%d’)_ANALYSIS01_ASSEMBLY</span>: directory where the analysis will be performed.
 
+This first lablog might not work depending on how the reads are named. In such cases, feel free to modify the regular expression in the `ln -s` part  
+
 Enter this analysis directory.
 ```
 cd *_ANALYSIS01_ASSEMBLY
