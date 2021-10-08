@@ -76,7 +76,7 @@ Go to a previous ASSEMBLY service, enter the ANALYSIS directory inside it, and c
 cp $PREVIOUS_ASSEMBLY_JOB/ANALYSIS/lablog .
 ```
 
-<span style="color:red;"> Check the lablog </span> just in case (do always check the lablog to avoid disasters), then execute it.
+<span style="color:red;"> Check the lablog </span> just in case (do always check the lablog to avoid disasters), then execute it. For example, sometimes the reads name wont fit the regexp in the lablog. In those cases, it becomes necessary to change it.
 ```
 bash lablog
 ```
