@@ -33,8 +33,6 @@ First of all, take the service and place it `in progress` so the solicitant is n
 
           **INSERT SUPER COOL SCREENSHOT**
 
-
-
 Go to the appropriate service directory, according to the nature of the service (the center and the area):
 ```
 cd /processing_Data/bioinformatics/services_and_colaborations/SERVICE_CENTER/AREA
