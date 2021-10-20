@@ -42,8 +42,7 @@ cd /processing_Data/bioinformatics/services_and_colaborations/SERVICE_CENTER/ARE
 Create the directory with the Folder Name you are given in the service information, and enter it. This will be the workdir for the service.
 
 ```
-mkdir $SERVICE_FOLDER_NAME
-cd $SERVICE_FOLDER_NAME
+mkdir $SERVICE_FOLDER_NAME && cd $_
 ```
 
 Create the directory structure
