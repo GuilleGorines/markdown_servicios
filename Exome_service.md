@@ -38,3 +38,137 @@ Once the BEDs and the samples are placed, it is time to move to the ANALYSIS dir
 ```
 cd ../ANALYSIS
 ```
+We will find the lablogs inside a previous exome analysis.
+
+```
+cp $PREVIOUS_EXOME_JOB/ANALYSIS/lablog .
+```
+<span style="color:red;"> Check the lablog </span> of course, and execute it. This will create the following structure:
+* 00-reads: where the reads will be symbolic-linked
+* $(date '+%Y%m%d')_ANALYSIS01_EXOME:  where the analysis will be performed
+* samples_id.txt: a file containing the name and path of the samples in RAW
+
+Enther the analysis repository, and copy the lablog from a previous service:
+```
+cd *_ANALYSIS01_EXOME
+cp $PREVIOUS_EXOME_JOB/ANALYSIS/*_ANALYSIS01_EXOME/lablog .
+```
+Check the lablog, and execute it
+
+```
+bash lablog
+```
+The following elements will be created:
+* 00-reads
+* _00_sarek.sh: this script will run nf-core SAREK, a nextflow program, in the HPC
+* 02-postprocessing:
+* 03-annotation:
+* 99-stats:
+
+sarek is the first step in the analysis. To run it properly, nextflow needs to be on its version 20.07.1. Luckily, there is a conda environment installed for it!
+
+```
+conda activate nextflowv20.07.1
+```
+
+Once the environment is activated, sarek can be called. The -bg (background) option is on, so the terminal can still be used while nextflow is running. 
+
+```
+nohup bash _00_sarek.sh &> $(date '+%Y%m%d')_sarek01.log &
+```
+
+This process will probably take a while. When it is finished, enter the 02-postprocessing directory
+```
+cd ../02-postprocessing
+```
+
+Copy the lablog of this directory from a previous exome job
+
+```
+cp $PREVIOUS_EXOME_JOB/ANALYSIS/*_ANALYSIS01_EXOME/02-postprocessing\* .
+```
+
+Check and execute the lablog
+
+```
+bash lablog
+```
+
+This will create a lot of files:
+* _01_select_snps.sh: first script, uses SELECTSNPS in the result of sarek to extract the snps.
+* _02_select_indels.sh: second script to use, uses SELECTINDELS in the result of sarek to extract the indels.
+* _03_snps_filtration.sh: filtrates the snps. USING THIS SCRIPT ALONE WONT WORK.
+* _03_run_snps_filtration.sh: sends *_03_snps_filtration.sh* to the HPC (if the previous is sent directly, it may cause problems)
+* _04_indels_filtration.sh: sends *_04_run_indels_filtration.sh* to the HPC (right like in the _03_snps_filtration.sh case)
+* _04_run_indels_filtration.sh: filtrates the indels. USING THIS SCRIPT ALONE WONT WORK.
+* _05_merge_vcfs.sh: uses MERGEVCF to merge the indel and the snps vcfs created by the previous scripts.
+* _06_gzip.sh: GZIPs the previous vcfs.
+
+To run these, a new conda environment is needed.
+
+```
+conda activate nf-core-sarek-2.6-fix-gatk
+```
+
+This scripts will be used sequentially.
+
+```
+bash _01_select_snps.sh
+bash _02_select_indels.sh
+```
+
+Once the former scripts have finished, execute the next ones.
+```
+bash _03_run_snps_filtration.sh
+bash _04_run_indels_filtration.sh
+```
+
+When those are finished, run the last two.
+```
+bash _05_merge_vcfs.sh
+bash _06_gzip.sh
+```
+
+When those are finished, the directory will be filled with logs from the HPC, so its a good moment to hide those.
+```
+mkdir logs
+mv FILINDEL* logs
+mv FILSNP* logs
+mv GZIP* logs
+mv MERGE* logs
+mv SELECTINDELS* logs
+mv SELECTSNPS* logs
+```
+
+Once they have all finished correctly and everything is shiny clean, its time to go to the part 03 of the analysis.
+
+```
+cd ../03-annotation
+```
+
+As usual, we copy-check-execute the lablog from a previous service:
+
+```
+cp $PREVIOUS_EXOME_JOB/ANALYSIS/*_ANALYSIS01_EXOME/03-annotation/lablog .
+```
+```
+bash lablog
+```
+
+This lablog will create more scripts:
+* _01_vcfmod.sh
+* _02_variant_table.sh
+* _03_run_vep_annotation.sh
+* _03_vep_annotation.sh
+* _04_mod_vcf_vep.sh
+* _05_merge_dbnsfp_R.sh
+* _06_merge_vcf_R.sh
+* _07_conseq_filtering.sh
+* _08_exomiser_exome.sh
+* dbNSFP_ENSG_gene_GRCh37.txt
+* exomiser
+* exomiser_configfile.yml
+logs
+merge_dbNFSP.R
+merge_parse.R
+vep
