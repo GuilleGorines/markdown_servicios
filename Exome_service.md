@@ -28,7 +28,7 @@ Exome services also need the enrichment BED file. This file, roughly, contains t
 However, for samples enriched with the same kit, this file will be the same. These files can be found in `/processing_Data/bioinformatics/references/exome_beds/`
 
 ```
-cp `/processing_Data/bioinformatics/references/exome_beds/$USED_KIT/*.{interval,bed,txt} .
+cp /processing_Data/bioinformatics/references/exome_beds/$USED_KIT/*.{interval,bed,txt} .
 ```
 
 If a novel kit was used in this analysis, please check the "making new beds for new kits" section!
