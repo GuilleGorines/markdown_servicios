@@ -128,9 +128,11 @@ bash _03_run_snps_filtration.sh
 bash _04_run_indels_filtration.sh
 ```
 
-When those are finished, run the last two.
+When those are finished, run the last two, the latter after the former is finished.
 ```
 bash _05_merge_vcfs.sh
+```
+```
 bash _06_gzip.sh
 ```
 
