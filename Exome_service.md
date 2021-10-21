@@ -84,7 +84,7 @@ nohup bash _00_sarek.sh &> $(date '+%Y%m%d')_sarek01.log &
 
 This process will probably take a while. When it is finished, enter the 02-postprocessing directory
 ```
-cd ../02-postprocessing
+cd 02-postprocessing
 ```
 
 Copy the lablog of this directory from a previous exome job
