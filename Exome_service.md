@@ -25,10 +25,10 @@ ln -s /srv/fastq_repo/$RUNS .
 ```
 Exome services also need the enrichment BED file. This file, roughly, contains the list of the zones that have been enriched (corresponding to the exome of the analyzed organism). Depending on the tools used to enrich the exome, this file will be different. 
 
-However, for samples enriched with the same kit, this file will be the same. Therefore, it is needed to find a previous service that used the very same kit, and copy it.
+However, for samples enriched with the same kit, this file will be the same. These files can be found in `/processing_Data/bioinformatics/references/exome_beds/`
 
 ```
-cp /$PREVIOUS_EXOME_JOB/RAW/*.{interval,bed,txt} .
+cp `/processing_Data/bioinformatics/references/exome_beds/$USED_KIT/*.{interval,bed,txt} .
 ```
 
 If a novel kit was used in this analysis, please check the "making new beds for new kits" section!
