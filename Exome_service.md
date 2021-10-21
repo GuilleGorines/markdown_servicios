@@ -176,8 +176,9 @@ This lablog will create more elements:
 * _08_exomiser_exome.sh: copies exomizer configuration file, moves to the exomizer directory, executes it on the HPC, and returns.
 
 Exomiser requires a yaml as a configuration 
-
-genePanelFilter: {geneSymbols: ['gene1','gene2','gene3']}
+-path of the service
+-samplename
+-genePanelFilter: {geneSymbols: ['gene1','gene2','gene3']}
 
 
 ```
