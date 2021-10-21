@@ -43,7 +43,12 @@ We will find the lablogs inside a previous exome analysis.
 ```
 cp $PREVIOUS_EXOME_JOB/ANALYSIS/lablog .
 ```
-<span style="color:red;"> Check the lablog </span> of course, and execute it. This will create the following structure:
+<span style="color:red;"> Check the lablog </span> of course, and execute it. 
+```
+bash lablog
+```
+
+This will create the following structure:
 * 00-reads: where the reads will be symbolic-linked
 * $(date '+%Y%m%d')_ANALYSIS01_EXOME:  where the analysis will be performed
 * samples_id.txt: a file containing the name and path of the samples in RAW
