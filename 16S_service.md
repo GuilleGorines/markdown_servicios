@@ -1,6 +1,6 @@
 
 ```
-TEMPLATE=/data/bi/services_and_colaborations/URJC/TEMPLATE
+TEMPLATE=/data/bi/pipelines/TEMPLATES/TEMPLATE_16S
 ```
 ```
 mkdir ANALYSIS DOC RAW REFERENCES RESULTS TMP
@@ -44,6 +44,7 @@ cp $TEMPLATE/ANALYSIS/ANALYSIS01_16S/99-stats/lablog .
 bash lablog
 bash _01_multiqc.sh
 mkdir logs
+mv MULTIQC* logs
 
 
 conda activate qiime2021.2
@@ -138,6 +139,7 @@ bash lablog SEQUENCING_DEPTH_FOR_FILTERED_SAMPLES
 bash _01_qiime2_alpha_diversity_filtered.sh
 bash _02_qiime2_faith_shannon_filtered.sh
 mkdir logs
+mv Q2* logs
 
 cd ../../13-qiime2_rarefaction/01-Full
 cp $TEMPLATE/ANALYSIS/ANALYSIS01_16S/13-qiime2_rarefaction/01-Full/lablog .
@@ -151,3 +153,8 @@ bash lablog SEQUENCING_DEPTH_FOR_FILTERED_SAMPLES
 bash _01_qiime_alpha_rarefaction_filtered.sh
 mkdir logs
 ```
+
+
+
+
+sudo sshfs -o allow_other,default_permissions ana.heredero@asterix.isciii.es:/data/bi /procesing_data/bioinformatics
