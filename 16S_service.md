@@ -27,7 +27,7 @@ bash lablog
 bash _01_cutadapt.sh
 mkdir logs
 
-cd ../03-preprocessing_fastp
+cd ../03-fastp_preprocess
 cp $TEMPLATE/ANALYSIS/ANALYSIS01_16S/03-preprocessing_fastp/lablog .
 bash lablog
 bash _01_fastp.sh
