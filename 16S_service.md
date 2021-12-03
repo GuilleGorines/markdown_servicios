@@ -113,14 +113,14 @@ bash _03_qiime2_biom_to_tsv.sh
 bash _04_python_transpose_tsv.sh
 mkdir logs
 
-cd ../../11-qiime2_pylogeny/01-Full
-cp $TEMPLATE/ANALYSIS/ANALYSIS01_16S/11-qiime2_pylogeny/01-Full/lablog .
+cd ../../11-qiime2_phylogeny/01-Full
+cp $TEMPLATE/ANALYSIS/ANALYSIS01_16S/11-qiime2_phylogeny/01-Full/lablog .
 bash lablog
 bash _01_qiime2_align.sh
 mkdir logs
 
 cd ../02-Filtered
-cp $TEMPLATE/ANALYSIS/ANALYSIS01_16S/11-qiime2_pylogeny/02-Filtered/lablog .
+cp $TEMPLATE/ANALYSIS/ANALYSIS01_16S/11-qiime2_phylogeny/02-Filtered/lablog .
 bash lablog
 bash _01_qiime2_align_filtered.sh
 mkdir logs
