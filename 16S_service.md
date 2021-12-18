@@ -20,24 +20,28 @@ cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/01-fastQC_previous/lablog .
 bash lablog
 bash _01_fastqc_pre_trimming.sh
 mkdir logs
+mv PRE_FQC* logs
 
 cd ../02-cutadapt_remove_primers
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/02-cutadapt_remove_primers/lablog .
 bash lablog
 bash _01_cutadapt.sh
 mkdir logs
+mv CUTADAPT* logs
 
 cd ../03-fastp_preprocess
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/03-fastp_preprocess/lablog .
 bash lablog
 bash _01_fastp.sh
 mkdir logs
+mv FASTP* logs
 
 cd ../04-fastQC_posterior
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/04-fastQC_posterior/lablog .
 bash lablog
 bash _01_fastqc_post_trimming.sh
 mkdir logs
+mv POST_FQC* logs
 
 cd ../99-stats
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/99-stats/lablog .
