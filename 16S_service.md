@@ -46,7 +46,6 @@ bash _01_multiqc.sh
 mkdir logs
 mv MULTIQC* logs
 
-
 conda activate qiime2021.2
 
 cd ../05-qiime2_import
@@ -56,6 +55,7 @@ bash _01_qiime2_import.sh
 
 bash _02_qiime2_import_visualfile.sh
 mkdir logs
+mv Q2* logs
 
 cd ../06-qiime2_denoise_cluster
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/06-qiime2_denoise_cluster/lablog .
@@ -64,6 +64,7 @@ bash _01_qiime2_dada2.sh
 
 bash _02_qiime2_dada2_visualfiles.sh
 mkdir logs
+mv Q2* logs
 
 cd ../07-qiime2_taxonomy
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/07-qiime2_taxonomy/lablog .
