@@ -27,7 +27,7 @@ cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/02-cutadapt_remove_primers/lablog .
 bash lablog
 bash _01_cutadapt.sh
 mkdir logs
-mv CUTADAPT* logs
+mv CUTADPT* logs
 
 cd ../03-fastp_preprocess
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/03-fastp_preprocess/lablog .
