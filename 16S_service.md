@@ -43,13 +43,6 @@ bash _01_fastqc_post_trimming.sh
 mkdir logs
 mv POST_FQC* logs
 
-cd ../99-stats
-cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/99-stats/lablog .
-bash lablog
-bash _01_multiqc.sh
-mkdir logs
-mv MULTIQC* logs
-
 conda activate qiime2021.2
 
 cd ../05-qiime2_import
@@ -85,7 +78,6 @@ bash _01_qiime2_filter_table_repseqs.sh
 
 bash _02_qiime2_filtered_visualfiles.sh
 mkdir logs
-
 
 cd ../09-qiime2_taxabarplots/01-Full
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/09-qiime2_taxabarplots/01-Full/lablog .
@@ -157,6 +149,15 @@ cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/13-qiime2_rarefaction/02-Filtered/lablo
 bash lablog SEQUENCING_DEPTH_FOR_FILTERED_SAMPLES
 bash _01_qiime_alpha_rarefaction_filtered.sh
 mkdir logs
+
+conda activate quality_control
+
+cd ../99-stats
+cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/99-stats/lablog .
+bash lablog
+bash _01_multiqc.sh
+bash _02_read_
+mkdir logs
+mv MULTIQC* logs
 ```
 
-sudo sshfs -o allow_other,default_permissions ana.heredero@asterix.isciii.es:/data/bi /procesing_data/bioinformatics
