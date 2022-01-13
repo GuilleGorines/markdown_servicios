@@ -156,8 +156,9 @@ cd ../99-stats
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/99-stats/lablog .
 bash lablog
 bash _01_multiqc.sh
-bash _02_read_
+bash _02_read_balance.sh
 mkdir logs
 mv MULTIQC* logs
+mv READ_BALANCE* logs
 ```
 
