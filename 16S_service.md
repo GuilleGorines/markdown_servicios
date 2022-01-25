@@ -164,7 +164,7 @@ mv Q2* logs
 
 conda activate quality_control
 
-cd ../99-stats
+cd ../../99-stats
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/99-stats/lablog .
 bash lablog
 bash _01_multiqc.sh
