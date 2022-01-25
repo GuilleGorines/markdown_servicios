@@ -108,8 +108,8 @@ mv PY* logs
 cd ../02-Filtered
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/10-qiime2_absoluteNumbers/02-Filtered/lablog .
 bash lablog
-bash _01_qiime2_collapse_filtered_table.sh
-bash _02_qiime2_export_biom_filtered_table.sh
+bash _01_qiime2_collapse_table.sh
+bash _02_qiime2_export_biom_table.sh
 bash _03_qiime2_biom_to_tsv.sh
 bash _04_python_transpose_tsv.sh
 mkdir logs
