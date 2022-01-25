@@ -103,6 +103,7 @@ bash _03_qiime2_biom_to_tsv.sh
 bash _04_python_transpose_tsv.sh
 mkdir logs
 mv Q2* logs
+mv PY* logs
 
 cd ../02-Filtered
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/10-qiime2_absoluteNumbers/02-Filtered/lablog .
