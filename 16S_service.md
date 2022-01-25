@@ -113,6 +113,8 @@ bash _02_qiime2_export_biom_table.sh
 bash _03_qiime2_biom_to_tsv.sh
 bash _04_python_transpose_tsv.sh
 mkdir logs
+mv Q2* logs
+mv PY* logs
 
 cd ../../11-qiime2_phylogeny/01-Full
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/11-qiime2_phylogeny/01-Full/lablog .
