@@ -153,12 +153,14 @@ cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/13-qiime2_rarefaction/01-Full/lablog .
 bash lablog SEQUENCING_DEPTH_FOR_FULL_SAMPLES
 bash _01_qiime2_alpha_rarefaction.sh
 mkdir logs
+mv Q2* logs
 
 cd ../02-Filtered
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/13-qiime2_rarefaction/02-Filtered/lablog .
 bash lablog SEQUENCING_DEPTH_FOR_FILTERED_SAMPLES
 bash _01_qiime_alpha_rarefaction_filtered.sh
 mkdir logs
+mv Q2* logs
 
 conda activate quality_control
 
