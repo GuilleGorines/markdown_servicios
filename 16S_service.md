@@ -120,14 +120,17 @@ cd ../../11-qiime2_phylogeny/01-Full
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/11-qiime2_phylogeny/01-Full/lablog .
 bash lablog
 bash _01_qiime2_align.sh
+bash _02_qiime2_export_tree.sh
 mkdir logs
+mv Q2* logs
 
 cd ../02-Filtered
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/11-qiime2_phylogeny/02-Filtered/lablog .
 bash lablog
 bash _01_qiime2_align_filtered.sh
+bash _02_qiime2_export_tree.sh
 mkdir logs
-
+mv Q2* logs
 
 cd ../../12-qiime2_diversity/01-Full
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/12-qiime2_diversity/01-Full/lablog .
