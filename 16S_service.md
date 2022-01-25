@@ -78,19 +78,21 @@ bash _01_qiime2_filter_table_repseqs.sh
 
 bash _02_qiime2_filtered_visualfiles.sh
 mkdir logs
+mv Q2* logs
 
 cd ../09-qiime2_taxabarplots/01-Full
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/09-qiime2_taxabarplots/01-Full/lablog .
 bash lablog
 bash _01_qiime2_taxa_barplots_full.sh
 mkdir logs
-
+mv Q2* logs
 
 cd ../02-Filtered
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/09-qiime2_taxabarplots/02-Filtered/lablog .
 bash lablog
 bash _01_qiime2_filter_taxa_barplots.sh
 mkdir logs
+mv Q2* logs
 
 cd ../../10-qiime2_absoluteNumbers/01-Full
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/10-qiime2_absoluteNumbers/01-Full/lablog .
@@ -100,6 +102,7 @@ bash _02_qiime2_export_biom_table.sh
 bash _03_qiime2_biom_to_tsv.sh
 bash _04_python_transpose_tsv.sh
 mkdir logs
+mv Q2* logs
 
 cd ../02-Filtered
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/10-qiime2_absoluteNumbers/02-Filtered/lablog .
