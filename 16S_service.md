@@ -187,7 +187,7 @@ mkdir logs
 mv Q2* logs
 
 cd ../02-Filtered
-cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/15-qiime2_ANCOM/01-Full/lablog .
+cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/15-qiime2_ANCOM/02-Filtered/lablog .
 bash lablog
 bash _01_qiime_pseudocount_filtered.sh
 bash _02_qiime_ancom_filtered.sh
