@@ -162,6 +162,38 @@ bash _01_qiime_alpha_rarefaction_filtered.sh
 mkdir logs
 mv Q2* logs
 
+cd ../../14-qiime2_gneiss_differential_abundance/01-Full
+cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/14-qiime2_gneiss_differential_abundance/01-Full/lablog .
+bash lablog
+bash _01_qiime_gneiss_build_hierarchy_full.sh
+bash _02_qiime_gneiss_heatmap_full.sh
+mkdir logs
+mv Q2* logs
+
+cd ../02-Filtered
+cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/14-qiime2_gneiss_differential_abundance/02-Filtered/lablog .
+bash lablog
+bash _01_qiime_gneiss_build_hierarchy_filtered.sh
+bash _02_qiime_gneiss_heatmap_filtered.sh
+mkdir logs
+mv Q2* logs
+
+cd ../../15-qiime2_ANCOM/01-Full
+cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/15-qiime2_ANCOM/01-Full/lablog .
+bash lablog
+bash _01_qiime_pseudocount_full.sh
+bash _02_qiime_ancom_full.sh
+mkdir logs
+mv Q2* logs
+
+cd ../02-Filtered
+cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/15-qiime2_ANCOM/01-Full/lablog .
+bash lablog
+bash _01_qiime_pseudocount_filtered.sh
+bash _02_qiime_ancom_filtered.sh
+mkdir logs
+mv Q2* logs
+
 conda activate quality_control
 
 cd ../../99-stats
