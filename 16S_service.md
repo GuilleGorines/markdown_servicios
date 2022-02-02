@@ -68,7 +68,7 @@ cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/07-qiime2_taxonomy/lablog .
 bash lablog
 bash _01_qiime2_taxonomic_identification.sh
 
-bash _02_qiime2_taxonomic_visual.sh
+bash _02_qiime2_taxonomic_visual_export.sh
 mkdir logs
 
 cd ../08-qiime2_filt_mit_chl/
