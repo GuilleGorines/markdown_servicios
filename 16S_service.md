@@ -136,7 +136,7 @@ cd ../../12-qiime2_diversity/01-Full
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/12-qiime2_diversity/01-Full/lablog .
 bash lablog SEQUENCING_DEPTH_FOR_FULL_SAMPLES
 bash _01_qiime2_alpha_diversity_full.sh
-bash _02_qiime2_faith_shannon.sh
+bash _02_qiime2_alpha_diversity_visual.sh
 mkdir logs
 mv Q2* logs
 
@@ -144,7 +144,7 @@ cd ../02-Filtered
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/12-qiime2_diversity/02-Filtered/lablog .
 bash lablog SEQUENCING_DEPTH_FOR_FILTERED_SAMPLES
 bash _01_qiime2_alpha_diversity_filtered.sh
-bash _02_qiime2_faith_shannon_filtered.sh
+bash bash _02_qiime2_alpha_diversity_visual.sh 
 mkdir logs
 mv Q2* logs
 
