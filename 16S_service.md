@@ -183,16 +183,22 @@ cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/15-qiime2_ANCOM/01-Full/lablog .
 bash lablog
 bash _01_qiime_pseudocount_full.sh
 bash _02_qiime_ancom_full.sh
+bash _03_qiime_export_ancom_full.sh
+bash _04_python_get_full_abundance_tables.sh
 mkdir logs
 mv Q2* logs
+mv PY* logs
 
 cd ../02-Filtered
 cp $TEMPLATE_16S/ANALYSIS/ANALYSIS01_16S/15-qiime2_ANCOM/02-Filtered/lablog .
 bash lablog
-bash _01_qiime_pseudocount_filtered.sh
-bash _02_qiime_ancom_filtered.sh
+bash _01_qiime_pseudocount_filt.sh
+bash _02_qiime_ancom_filt.sh
+bash _03_qiime_export_ancom_filt.sh 
+bash _04_python_get_filt_abundance_tables.sh
 mkdir logs
 mv Q2* logs
+mv PY* logs
 
 conda activate quality_control
 
