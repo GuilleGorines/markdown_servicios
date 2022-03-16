@@ -101,6 +101,8 @@ bash _01_qiime2_collapse_table.sh
 bash _02_qiime2_export_biom_table.sh
 bash _03_qiime2_biom_to_tsv.sh
 bash _04_python_transpose_tsv.sh
+bash _05_python_core.sh
+bash _06_python_heatmaps.sh
 mkdir logs
 mv Q2* logs
 mv PY* logs
@@ -112,6 +114,8 @@ bash _01_qiime2_collapse_table.sh
 bash _02_qiime2_export_biom_table.sh
 bash _03_qiime2_biom_to_tsv.sh
 bash _04_python_transpose_tsv.sh
+bash _05_python_core.sh
+bash _06_python_heatmaps.sh
 mkdir logs
 mv Q2* logs
 mv PY* logs
