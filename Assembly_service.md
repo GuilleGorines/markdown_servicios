@@ -246,32 +246,6 @@ mv trimming/trimmed trimming/trimmed_DEL
 
 With all of this, the service is ready to be delivered. However, the result revision is still pending.
 
-## In short
-Here, we gather all the above steps without an explanation, so the service can be launched in a blast. However, take into account that you should always check the lablogs.
-
-ASSEMBLY_TEMPLATE="/data/bi/pipelines/TEMPLATES/NEW_ASSEMBLY_TEMPLATE"
-mkdir $SERVICE_FOLDER_NAME && cd $_
-
-mkdir ANALYSIS DOC RAW REFERENCES RESULTS TMP
-cd RAW
-*fill raw directory*
-
-cp $ASSEMBLY_TEMPLATE/DOC/hpc_slurm_assembly.config DOC
-cd ANALYSIS
-cp $TEMPLATE/ANALYSIS/lablog .
-bash lablog
-ls
-ls *ANALYSIS01_ASSEMBLY
-bash _01_copy_folder.sh
-
-cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME
-cd ANALYSIS/*ANALYSIS01*
-cp $ASSEMBLY_TEMPLATE/ANALYSIS/ANALYSIS01_ASSEMBLY/lablog .
-bash lablog [ + / - ]
-module load Nextflow singularity
-bash _01_nf_assembly.sh
-
-
 
 ## Revising the results
 
