@@ -1,45 +1,17 @@
-Hello and welcome to this (as) brief (as possible) tutorial on how to perform an assembly service as part of the BU-ISCIII. Let's begin!
+# How to perform the Assembly Service
+Welcome to this (as) brief (as possible) tutorial on how to perform a Assembly Service as a member of the ISCIII's Bioinformatics Unit!
 
+First of all, take the service and place it `in progress` so the solicitant is notified that the service has started. This is a common step for all services provided by BU-ISCIII.
 
-## How to accept a service in iSkyLims
+          **INSERT SUPER COOL SCREENSHOT YET TO BE PREPPED**
 
-Enter [iSkyLims](https://iskylims.isciii.es/ "ISCIII's iSkyLims") and log with your username and password.
-
-          **INSERT SUPER COOL SCREENSHOT**
-
-Once logged, enter the drylab (this is, the data analysis section).
-
-          **INSERT SUPER COOL SCREENSHOT**
-
-Click manage services, pending services.
-
-          **INSERT SUPER COOL SCREENSHOT**
-
-This will take you to the pending services page (duh).
-
-          **INSERT SUPER COOL SCREENSHOT**
-
-Choose a service by selecting its Service Request ID (first column). You will then enter the Service Info Display for that service.
-
-          **INSERT SUPER COOL SCREENSHOT**
-
-
-
-(…)
-
-## How to perform the Assembly Service
-
-First of all, take the service and place it `in progress` so the solicitant is notified that the service has started.
-
-          **INSERT SUPER COOL SCREENSHOT**
-
-Go to the appropriate service directory, according to the nature of the service (the center and the area):
+Now, login in our HPC with your credentials, and go to the appropriate service directory, according to the nature of the service (the center and the area):
 ```
 cd /processing_Data/bioinformatics/services_and_colaborations/SERVICE_CENTER/AREA
 ```
 Create the directory with the Folder Name you are given in the service information, and enter it. This will be the workdir for the service.
-
 ```
+
 mkdir $SERVICE_FOLDER_NAME && cd $_
 ```
 
@@ -52,7 +24,6 @@ Move to the RAW directory
 cd RAW
 ```
 Inside the Service Info Display page, check the name of the sequencing runs that are involved.
-
 
 Create a symbolic link to the reads that will be used. 
 ```
@@ -67,29 +38,41 @@ Move to the ANALYSIS directory
 ```
 cd ../ANALYSIS
 ```
-Go to a previous ASSEMBLY service, enter the ANALYSIS directory inside it, and copy its lablog. 
+Record the assembly template path, we will copy all the lablogs from there (of course, this will only work inside the BU-ISCIII file system).
 
 ```
-cp $PREVIOUS_ASSEMBLY_JOB/ANALYSIS/lablog .
+ASSEMBLY_TEMPLATE=/data/bi/pipelines/TEMPLATES/ASSEMBLY_TEMPLATE
 ```
 
-<span style="color:red;"> Check the lablog </span> just in case (do always check the lablog to avoid disasters), then execute it. For example, sometimes the reads name wont fit the regexp in the lablog. In those cases, it becomes necessary to change it.
+Enter the ANALYSIS directory inside the service, and copy the corresponding lablog from the template. 
+
+```
+cp $ASSEMBLY_TEMPLATE/ANALYSIS/lablog .
+```
+
+<span style="color:red;"> Check the lablog </span> just in case (do always check the lablog to avoid disasters), then execute it.
 ```
 bash lablog
 ```
+
+
+
+
+
+
+
+
 This first lablog will create the following elements:
 * <span style="color:#191970 ;">00-reads</span>: directory where the trimmed reads will be stored. 
 * <span style="color: #191970;">$(date '+%Y%m%d’)_ANALYSIS01_ASSEMBLY</span>: directory where the analysis will be performed.
-
-This first lablog might not work depending on how the reads are named. In such cases, feel free to modify the regular expression in the `ln -s` part  
 
 Enter this analysis directory.
 ```
 cd *_ANALYSIS01_ASSEMBLY
 ```
-Copy the lablog of this directory from a previous assembly analysis.
+Copy the lablog of this directory from the template.
 ```
-cp $PREVIOUS_ASSEMBLY_JOB/ANALYSIS/*ANALYSIS01_ASSEMBLY/lablog .
+cp $ASSEMBLY_TEMPLATE/ANALYSIS/ANALYSIS01_ASSEMBLY/lablog .
 ```
 Check the lablog and execute.
 ```
@@ -110,7 +93,7 @@ cd 01-preprocessing
 ```
 Copy the lablog from the 01-preprocessing of a previous service.
 ```
-cp $PREVIOUS_ASSEMBLY_JOB/ANALYSIS/*ANALYSIS01_ASSEMBLY/01-preprocessing*/lablog .
+cp $ASSEMBLY_TEMPLATE/ANALYSIS/ANALYSIS01_ASSEMBLY/01-preprocessing*/lablog .
 ```
 Check the lablog just in case, and execute it.
 ```
@@ -145,10 +128,10 @@ Go to the next part, 02-kmerfinder
 ```
 cd ../02-kmerfinder
 ```
-Again, copy the lablog from the 02-kmerfinder of a previous assembly service
+Again, copy the lablog from the 02-kmerfinder of the template
 
 ```
-cp $PREVIOUS_ASSEMBLY_JOB/ANALYSIS/*ANALYSIS01_ASSEMBLY/02-kmerfinder/lablog .
+cp $ASSEMBLY_TEMPLATE/ANALYSIS/ANALYSIS01_ASSEMBLY/02-kmerfinder/lablog .
 ```
 
 Check the lablog, and execute it
@@ -195,9 +178,9 @@ As we will run the nf assembly pipeline, we will activate the appropriate <span 
 ```
 conda activate nextflow
 ```
-Now, we will change the reference used in the `_01_nf_assembly.sh` script to the reference we just downloaded.
+Now, we will change the reference used in the `_01_nf_assembly.sh` script to the reference we just downloaded (dont include the `_genomic` part).
 ```
-sed -i “s/your_reference/previous_reference/g” _01_nf_assembly.sh
+sed -i “s/@@@@@/your_reference/g” _01_nf_assembly.sh
 ```
 Once changed, execute the script in the background (so it cant be interrupted if connection to the HPC is lost).
 ```
@@ -207,9 +190,9 @@ While the previous script is running, go to 99-stats to generate the statistics 
 ```
 cd 99-stats
 ```
-Copy the lablog from a previous 99-stats folder of a previous assembly service.
+Copy the lablog from the 99-stats folder of the service template.
 ```
-cp $PREVIOUS_ASSEMBLY_JOB/ANALYSIS/*ANALYSIS01_ASSEMBLY/99-stats/lablog . 
+cp $ASSEMBLY_TEMPLATE/ANALYSIS/ANALYSIS01_ASSEMBLY/99-stats/lablog . 
 ```
 
 Check the lablog and execute it (this one will do all the work).
@@ -219,11 +202,11 @@ bash lablog
 
 Once all of these steps have ended, the service will be finished. However, there are some extra steps to take into account before delivery.
 
-### Preparing the delivery
+## Preparing the delivery
 
 Before delivering the service, it is necessary to **remove not-so-useful and redundant data** (such as the trimmed reads). Go to the main directory of the service.
 ```
-cd ../../...
+cd ../../..
 ```
 
 Change the name of the `RAW` and `TMP` directories, adding a _NC (no copy) to their names
@@ -261,9 +244,36 @@ Changing that `trimmed` directory to `trimmed_DEL` will end this part of the gui
 mv trimming/trimmed trimming/trimmed_DEL
 ``` 
 
-With all of this, the service is ready to be delivered. However, the most important part is still pending.
+With all of this, the service is ready to be delivered. However, the result revision is still pending.
 
-### Revising the results
+## In short
+Here, we gather all the above steps without an explanation, so the service can be launched in a blast. However, take into account that you should always check the lablogs.
+
+ASSEMBLY_TEMPLATE="/data/bi/pipelines/TEMPLATES/NEW_ASSEMBLY_TEMPLATE"
+mkdir $SERVICE_FOLDER_NAME && cd $_
+
+mkdir ANALYSIS DOC RAW REFERENCES RESULTS TMP
+cd RAW
+*fill raw directory*
+
+cp $ASSEMBLY_TEMPLATE/DOC/hpc_slurm_assembly.config DOC
+cd ANALYSIS
+cp $TEMPLATE/ANALYSIS/lablog .
+bash lablog
+ls
+ls *ANALYSIS01_ASSEMBLY
+bash _01_copy_folder.sh
+
+cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME
+cd ANALYSIS/*ANALYSIS01*
+cp $ASSEMBLY_TEMPLATE/ANALYSIS/ANALYSIS01_ASSEMBLY/lablog .
+bash lablog [ + / - ]
+module load Nextflow singularity
+bash _01_nf_assembly.sh
+
+
+
+## Revising the results
 
 Once all processes have ended (remember to always check this with `qstat`), its time to go over the results.
 
@@ -275,8 +285,6 @@ Last, but not least, check the kmerfinder csv generated in `99-stats` to see if 
 
 Make sure to take note of any anomalies. Sometimes something might be off, or might not make sense. Try to find a reason for this (wrong parameters in a process, not-so-good quality of the reads). Maybe, repeating the process with some changes is necessary, take note of that as well.
 
-
-PROKKA: l308 en bacterial assembly, cambiar + por - o parametrizar
 
 
 ## Troubleshooting
@@ -294,4 +302,14 @@ Description: kmerfinder process stopped early, and logs showed the following mes
 `ERROR : Failed to create user namespace: user namespace not supported by your system`
 
 Solution: Restarting the ssh connection worked
+
+**NEWUSER namespace runtime** (15-2-2022)
+Found in: kmerfinder process
+
+Description: kmerfinder process stopped early, logs showed the following message:
+
+`Failed invoking the NEWUSER namespace runtime: Invalid argument`
+`ABORT  : Retval = 255`
+
+
 	
