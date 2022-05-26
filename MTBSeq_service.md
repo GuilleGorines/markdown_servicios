@@ -18,7 +18,8 @@ cd ..
 MTBSEQ_TEMPLATE="/data/bi/pipelines/TEMPLATES/MTBSEQ_TEMPLATE"
 cp $MTBSEQ_TEMPLATE/DOC/hpc_slurm_assembly.config DOC
 cd ANALYSIS
-cp $TEMPLATE/ANALYSIS/lablog .
+MTBSEQ_TEMPLATE="/data/bi/pipelines/TEMPLATES/MTBSEQ_TEMPLATE"
+cp $MTBSEQ_TEMPLATE/ANALYSIS/lablog .
 bash lablog
 ls
 ls *ANALYSIS01_MTBSEQ
@@ -52,4 +53,7 @@ Wait another while for the MTBSeq to end
 ```
 bash _03_gather_results
 ```
-
+```
+cd ../..
+bash _02_copy_back.sh
+```

@@ -164,11 +164,12 @@ cd RAW
 *fill raw directory*
 
 ```
-ASSEMBLY_TEMPLATE="/data/bi/pipelines/TEMPLATES/ASSEMBLY_TEMPLATE"
 cd ..
+ASSEMBLY_TEMPLATE="/data/bi/pipelines/TEMPLATES/ASSEMBLY_TEMPLATE"
 cp $ASSEMBLY_TEMPLATE/DOC/hpc_slurm_assembly.config DOC
 cd ANALYSIS
-cp $TEMPLATE/ANALYSIS/lablog .
+ASSEMBLY_TEMPLATE="/data/bi/pipelines/TEMPLATES/ASSEMBLY_TEMPLATE"
+cp $ASSEMBLY_TEMPLATE/ANALYSIS/lablog .
 bash lablog
 ls
 ls *ANALYSIS01_ASSEMBLY
@@ -187,7 +188,10 @@ bash lablog [ + / - ]
 module load Nextflow singularity
 bash _01_nf_assembly.sh
 ```
-
+```
+cd ..
+bash _02_copy_back.sh
+```
 
 
 
