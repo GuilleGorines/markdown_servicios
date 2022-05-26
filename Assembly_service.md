@@ -154,8 +154,9 @@ Make sure to take note of any anomalies. Sometimes something might be off, or mi
 Here, we gather all the above steps without an explanation, so the service can be launched in a blast. However, take into account that you should always check the lablogs.
 
 ```
-ASSEMBLY_TEMPLATE="/data/bi/pipelines/TEMPLATES/ASSEMBLY_TEMPLATE"
 mkdir $SERVICE_FOLDER_NAME && cd $_
+```
+```
 mkdir ANALYSIS DOC RAW REFERENCES RESULTS TMP
 cd RAW
 ```
