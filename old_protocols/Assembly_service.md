@@ -5,12 +5,13 @@ First of all, take the service and place it `in progress` so the solicitant is n
 
           **INSERT SUPER COOL SCREENSHOT YET TO BE PREPPED**
 
-Now, login in the HPC with your credentials, and go to the appropriate service directory, according to the nature of the service (the center and the area):
+Now, login in our HPC with your credentials, and go to the appropriate service directory, according to the nature of the service (the center and the area):
 ```
 cd /processing_Data/bioinformatics/services_and_colaborations/SERVICE_CENTER/AREA
 ```
 Create the directory with the Folder Name you are given in the service information, and enter it. This will be the workdir for the service.
 ```
+
 mkdir $SERVICE_FOLDER_NAME && cd $_
 ```
 
@@ -33,7 +34,7 @@ Optionally, check how many reads there are, for future references and error trac
 ls | wc -l
 ```
 
-Now move to the ANALYSIS directory
+Move to the ANALYSIS directory
 ```
 cd ../ANALYSIS
 ```
@@ -51,46 +52,40 @@ cp $ASSEMBLY_TEMPLATE/ANALYSIS/lablog .
 
 <span style="color:red;"> Check the lablog </span> just in case (do always check the lablog to avoid disasters), then execute it.
 ```
-cat lablog
 bash lablog
 ```
+
+
+
+
+
+
+
+
 This first lablog will create the following elements:
-* **00-reads**: directory where the reads will be stored, with a simpler naming. 
-* **$(date '+%Y%m%d’)_ANALYSIS01_ASSEMBLY**: directory where the whole analysis will be performed.
-* **samples_id.txt**: file containing the name of the samples in RAW (this is, without the extension and the `R1` and `R2` tags).
-* **_01_copy_folder.sh**: this script copies the whole directory structure to the part of the HPC where the analysis will be performed.
-* **_02_copy_bach.sh**: this script does the exact opposite of `_01_copy_folder.sh`: once finished, it will copy the whole analysis directory back to its storage place.
+* <span style="color:#191970 ;">00-reads</span>: directory where the trimmed reads will be stored. 
+* <span style="color: #191970;">$(date '+%Y%m%d’)_ANALYSIS01_ASSEMBLY</span>: directory where the analysis will be performed.
 
-Move all the analysis directory to the working place with:
-
+Enter this analysis directory.
 ```
-bash _01_copy_folder.sh
+cd *_ANALYSIS01_ASSEMBLY
 ```
-
-The next step is going to that directory. In this case, it will be:
+Copy the lablog of this directory from the template.
 ```
-cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME
-```
-
-Go to the analysis directory and copy the next lablog
-
-```
-cd ANALYSIS/*_ANALYSIS01_ASSEMBLY
 cp $ASSEMBLY_TEMPLATE/ANALYSIS/ANALYSIS01_ASSEMBLY/lablog .
 ```
-Check and execute the lablog. This second lablog is a little trickier, as it requires a parameter, which is the gram of the bacteria you are working with. Therefore, you need to run `bash lablog +` for gram positive bacteria, and `bash lablog -` for gram negative bacteria. Here, we provide you with a small list of the most studied bacteria in the ISCIII, and its gram tincture results.
-
-**Gram positive bacteria**: _Listeria monocytogenes_
-**Gram negative bacteria**: __
-
+Check the lablog and execute.
 ```
-cat lablog
-bash lablog [+|-]
+bash lablog
 ```
-
-The lablog will create several elements: 
-* _01_nf_assembly.sh</span>: script to perform the assembly pipeline.
-
+The lablog will have created several elements: 
+* <span style="color: #279406;">_01_nf_assembly.sh</span>: script to perform the assembly pipeline.
+* <span style="color: #191970;">01-preprocessing</span>: directory where preprocessing with Trimmomatic will be performed.
+* <span style="color: #191970;">02-kmerfinder</span>: directory where kmerfinder will be performed.
+* <span style="color: #191970;">99-stats</span>: directory where kmerfinder results will be stored.
+* <span style="color: #191970;">00-reads</span>: symbolic link to the 00-reads directory.
+* <span style="color:#1414E0 ;">samples_id</span>: symbolic link to the sample list.
+* <span style="color: #1414E0;">bacterial_qc</span>: symbolic link to a directory containing necessary scripts for analysis.
 
 Move to the first step, 01-preprocessing:
 ```
@@ -251,32 +246,6 @@ mv trimming/trimmed trimming/trimmed_DEL
 
 With all of this, the service is ready to be delivered. However, the result revision is still pending.
 
-## In short
-Here, we gather all the above steps without an explanation, so the service can be launched in a blast. However, take into account that you should always check the lablogs.
-
-ASSEMBLY_TEMPLATE="/data/bi/pipelines/TEMPLATES/NEW_ASSEMBLY_TEMPLATE"
-mkdir $SERVICE_FOLDER_NAME && cd $_
-
-mkdir ANALYSIS DOC RAW REFERENCES RESULTS TMP
-cd RAW
-*fill raw directory*
-
-cp $ASSEMBLY_TEMPLATE/DOC/hpc_slurm_assembly.config DOC
-cd ANALYSIS
-cp $TEMPLATE/ANALYSIS/lablog .
-bash lablog
-ls
-ls *ANALYSIS01_ASSEMBLY
-bash _01_copy_folder.sh
-
-cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME
-cd ANALYSIS/*ANALYSIS01*
-cp $ASSEMBLY_TEMPLATE/ANALYSIS/ANALYSIS01_ASSEMBLY/lablog .
-bash lablog [ + / - ]
-module load Nextflow singularity
-bash _01_nf_assembly.sh
-
-
 
 ## Revising the results
 
@@ -316,3 +285,5 @@ Description: kmerfinder process stopped early, logs showed the following message
 `Failed invoking the NEWUSER namespace runtime: Invalid argument`
 `ABORT  : Retval = 255`
 
+
+	
