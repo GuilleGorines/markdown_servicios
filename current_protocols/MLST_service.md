@@ -1,0 +1,6 @@
+```
+mkdir ANALYSIS DOC RAW REFERENCES RESULTS TMP
+cd RAW
+```
+
+
