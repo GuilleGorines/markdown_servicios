@@ -40,6 +40,7 @@ cp $MLST_TEMPLATE/ANALYSIS/ANALYSIS01_MLST/03-fastQC-post/lablog .
 bash lablog
 bash _01_fastqc_post_trimming.sh
 cd ../04-mlst
+conda activate SRST2
 cp $MLST_TEMPLATE/ANALYSIS/ANALYSIS01_MLST/04-mlst/lablog .
 bash lablog
 bash _01_srst2_mlst.sh
