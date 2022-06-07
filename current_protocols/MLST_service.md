@@ -55,3 +55,11 @@ bash _02_srst2_summary.sh
 cd ../..
 bash _02_copy_back.sh
 ```
+
+```
+mv RAW RAW_NC
+mv TMP TMP_NC
+
+cd ANALYSIS/*ANALYSIS*_MLST/02-fastp-trim
+rm -rf */*.fastq.gz
+```
