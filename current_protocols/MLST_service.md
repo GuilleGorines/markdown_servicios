@@ -44,5 +44,14 @@ conda activate SRST2
 cp $MLST_TEMPLATE/ANALYSIS/ANALYSIS01_MLST/04-mlst/lablog .
 bash lablog
 bash _01_srst2_mlst.sh
+```
+Wait for the srst2 process to end
+
+```
 bash _02_srst2_summary.sh
+```
+
+```
+cd ../..
+bash _02_copy_back.sh
 ```
