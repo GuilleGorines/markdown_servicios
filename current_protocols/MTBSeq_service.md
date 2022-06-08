@@ -44,6 +44,7 @@ cd 05-MTBSeq
 MTBSEQ_TEMPLATE="/data/bi/pipelines/TEMPLATES/MTBSEQ_TEMPLATE"
 cp $MTBSEQ_TEMPLATE/ANALYSIS/ANALYSIS01_MTBSEQ/05-MTBSeq/lablog .
 bash lablog
+conda activate mtbseq
 bash _00_prepareRaw.sh
 bash _01_preparesamples.sh
 conda activate mtbseq
