@@ -244,3 +244,111 @@ mv RAW RAW_NC
 mv TMP TMP_NC
 ```
 
+# In short
+```
+mkdir $SERVICE_FOLDER_NAME && cd $_
+```
+
+```
+mkdir ANALYSIS DOC RAW REFERENCES RESULTS TMP
+cd RAW
+```
+
+```
+cd ..
+EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
+cp $EXOME_TEMPLATE/DOC/hpc_slurm_sarek.config DOC
+cd ANALYSIS
+EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
+cp $EXOME_TEMPLATE/ANALYSIS/lablog .
+bash lablog
+bash _01_copy_folder.sh
+```
+
+```
+cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME
+cd ANALYSIS/*ANALYSIS01_EXOME
+cp $EXOME_TEMPLATE/ANALYSIS/ANALYSIS01_EXOME/lablog .
+bash lablog
+module load Nextflow
+bash _01_run_sarek.sh
+```
+
+Wait for sarek to end
+
+```
+cd 02-postprocessing
+EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
+cp $EXOME_TEMPLATE/EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE/lablog .
+bash lablog
+conda activate nf-core-sarek-2.7.1
+bash _01_select_snps.sh
+bash _02_select_indels.sh
+```
+
+```
+conda activate nf-core-sarek-2.7.1
+bash _03_snps_filtration.sh
+bash _04_snps_filtration.sh
+```
+
+```
+conda activate nf-core-sarek-2.7.1
+bash _05_merge_vcfs.sh
+```
+
+```
+conda activate nf-core-sarek-2.7.1
+bash _06_gzip.sh
+```
+
+```
+cd ..
+cd 03-annotation
+EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
+cp $EXOME_TEMPLATE/ANALYSIS/ANALYSIS01_EXOME/03-annotation/lablog .
+bash lablog
+bash _01_vcfmod.sh
+```
+```
+conda activate nf-core-sarek-2.7.1
+bash _02_bcftools_query.sh
+```
+
+```
+bash _03_variant_table.sh
+```
+
+```
+conda activate nf-core-sarek-2.7.1
+bash _04_vep_annotation.sh
+```
+
+```
+conda activate nf-core-sarek-2.7.1
+bash _05_mod_vcf_vep.sh
+```
+
+```
+bash _06_merge_dbnsfp_R.sh
+bash _07_merge_vcf_R.sh
+```
+
+```
+bash _08_conseq_filtering.sh
+```
+
+```
+cd ..
+cd 99-stats
+EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
+cp $EXOME_TEMPLATE/ANALYSIS/ANALYSIS01_EXOME/99-stats/lablog .
+bash lablog
+module load picard
+bash _01_picardHsMEtrics.sh
+```
+
+```
+bash _02_hsMetrics_all.sh
+```
+
