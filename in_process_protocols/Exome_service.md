@@ -266,7 +266,11 @@ bash _01_copy_folder.sh
 ```
 
 ```
+# copy the corresponding exome bed 
 cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME
+cp /data/bi/references/exome_beds/Nextera_flex_for_enrichment–Illumina/* RAW
+```
+```
 cd ANALYSIS/*ANALYSIS01_EXOME
 cp $EXOME_TEMPLATE/ANALYSIS/ANALYSIS01_EXOME/lablog .
 bash lablog
