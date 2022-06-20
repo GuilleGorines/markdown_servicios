@@ -325,12 +325,11 @@ bash _03_variant_table.sh
 ```
 
 ```
-conda activate nf-core-sarek-2.7.1
+conda activate vep
 bash _04_vep_annotation.sh
 ```
 
 ```
-conda activate nf-core-sarek-2.7.1
 bash _05_mod_vcf_vep.sh
 ```
 
