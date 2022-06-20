@@ -294,7 +294,7 @@ bash _02_select_indels.sh
 ```
 conda activate nf-core-sarek-2.7.1
 bash _03_snps_filtration.sh
-bash _04_snps_filtration.sh
+bash _04_indels_filtration.sh
 ```
 
 ```
