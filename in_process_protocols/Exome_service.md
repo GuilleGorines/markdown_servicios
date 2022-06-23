@@ -349,7 +349,7 @@ EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
 cp $EXOME_TEMPLATE/ANALYSIS/ANALYSIS01_EXOME/99-stats/lablog .
 bash lablog
 module load picard
-bash _01_picardHsMEtrics.sh
+bash _01_picardHsMetrics.sh
 ```
 
 ```
