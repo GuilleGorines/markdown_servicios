@@ -242,6 +242,11 @@ Change the `RAW` and the `TMP` directories, adding "_NC" to their names.
 ```
 mv RAW RAW_NC
 mv TMP TMP_NC
+cd ANALYSIS/*EXOME
+mv 02-postprocessing 02-postprocessing_NC
+rm -rf work
+rm -rf 01-sarek/Preprocessing/*/DuplicatesMarked
+
 ```
 
 # In short
