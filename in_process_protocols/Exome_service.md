@@ -342,6 +342,9 @@ bash _07_merge_vcf_R.sh
 ```
 bash _08_conseq_filtering.sh
 ```
+```
+bash _09_exomiser_exome.sh
+```
 
 ```
 cd ..
