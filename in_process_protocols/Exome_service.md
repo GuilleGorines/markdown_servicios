@@ -334,6 +334,7 @@ bash _05_mod_vcf_vep.sh
 ```
 
 ```
+module load R
 bash _06_merge_dbnsfp_R.sh
 bash _07_merge_vcf_R.sh
 ```
