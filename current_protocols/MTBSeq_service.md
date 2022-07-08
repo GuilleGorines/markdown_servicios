@@ -41,6 +41,7 @@ Wait a while for the assembly to end
 
 ```
 cd 05-MTBSeq
+mkdir logs
 MTBSEQ_TEMPLATE="/data/bi/pipelines/TEMPLATES/MTBSEQ_TEMPLATE"
 cp $MTBSEQ_TEMPLATE/ANALYSIS/ANALYSIS01_MTBSEQ/05-MTBSeq/lablog .
 bash lablog
