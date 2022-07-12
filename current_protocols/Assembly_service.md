@@ -162,6 +162,7 @@ cd RAW
 ```
 
 *fill raw directory*
+(use ```fastq-dump --split-files``` from the sra toolkit if from SRA)
 
 ```
 cd ..
