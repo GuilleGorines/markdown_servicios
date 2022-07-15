@@ -1,13 +1,13 @@
 # How to perform the Assembly Service
 Welcome to this (as) brief (as possible) tutorial on how to perform a Assembly Service as a member of the ISCIII's Bioinformatics Unit!
 
-First of all, take the service and place it `in progress` so the solicitant is notified that the service has started. This is a common step for all services provided by BU-ISCIII.
+First of all, take the service and place it `in progress` in iSkyLIMS so the solicitant is notified that the service has started. This is a common step for all services provided by BU-ISCIII.
 
           **INSERT SUPER COOL SCREENSHOT YET TO BE PREPPED**
 
 Now, **login in the HPC with your credentials**, and go to the appropriate service directory, according to the nature of the service (the center and the area):
 ```
-cd /processing_Data/bioinformatics/services_and_colaborations/SERVICE_CENTER/AREA
+cd /data/bi/services_and_colaborations/SERVICE_CENTER/AREA
 ```
 Create the directory with the Folder Name you are given in the service information, and enter it. This will be the workdir for the service.
 ```
@@ -34,7 +34,7 @@ Optionally, check how many reads there are, for future references and error trac
 ls | wc -l
 ```
 
-Now move back
+Now, move back
 
 ```
 cd ..
