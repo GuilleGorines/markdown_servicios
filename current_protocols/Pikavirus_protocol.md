@@ -61,6 +61,8 @@ Executing this first lablog will create the following elements inside of the dir
 * **_01_copy_folder.sh**: a bash script that will take all the content in the analysis file and move it to the `scratch_tmp` directory, where the whole analysis can be executed.
 * **_02_copy_bach.sh**: a bash script that will take all the resulting files after pikavirus is run back to this location once the analysis in `scratch_tmp` has been finished. 
 
+**NOTE**: sometimes, the naming on your samples might be different from usual. In such cases, it will be necessary to modify the lablog so the `samples_id.txt` file can be correctly created.
+
 Next step is taking this whole directory to `scratch_tmp`. This is achieved by executing the `_01_copy_folder.sh` script. After this, we have to go to the corresponding directory in `scratch_tmp`. The name of this directory will remain the same it was in this directory (the one provided by iSkyLIMS at the beginning). 
 
 ```
