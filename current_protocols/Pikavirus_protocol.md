@@ -9,7 +9,7 @@ Now, **login in the HPC with your credentials**, and go to the appropriate servi
 cd /data/bi/service_and_colaborations/SERVICE_CENTER/AREA
 ```
 
-Create the directory with the Folder Name you ahve been given in the service information in iSkyLIMS, and enter it. This directory will be the starting point for the service.
+Create the directory with the Folder Name you have been given in the service information in iSkyLIMS, and enter it. This directory will be the starting point for the service.
 
 ```
 mkdir $SERVICE_FOLDER_NAME && cd $_
