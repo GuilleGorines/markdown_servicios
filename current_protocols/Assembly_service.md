@@ -162,7 +162,7 @@ cd RAW
 ```
 
 *fill raw directory*
-(use ```fastq-dump --split-files``` from the sra toolkit if from SRA)
+(use ```fastq-dump --gzip --split-files``` from the sra toolkit if from SRA, it can be found in the ```sratools``` env inside of the HPC)
 
 ```
 cd ..
