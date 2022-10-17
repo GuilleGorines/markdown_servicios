@@ -146,3 +146,8 @@ module load Nextflow
 bash _01_nf_pikavirus.sh
 ```
 
+# Troubleshooting
+Sometimes, errors happen. This section of the guide gathers all errors that we have had with PikaVirus, the date they happened, and the solution we gave to them. Hopefully, they will be a good reference!
+
+- **2022-10-17**: *variable X not defined*. For some reason, and with no changes to the code whatsoever (and a correct functioning until then), NextFlow started reporting this error. This happened in version 22.04.0. Solution was going back to version 21.10.6, available both in module call, and in the "nextflow" conda environment. Further analysis is required.
+
