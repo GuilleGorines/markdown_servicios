@@ -95,7 +95,7 @@ This will create the following elements in the directory:
 The last step is to activate the corresponding modules (in this case, only the Nextflow module) in the HPC, and run the `_01_nf_pikavirus.sh`.
 
 ```
-module load Nextflow
+module load Nextflow/21.10.6
 bash _01_nf_pikavirus.sh
 ```
 
