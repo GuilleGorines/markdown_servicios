@@ -33,6 +33,7 @@ Dont forget to check whether all the needed reads are present in the directory b
 Now, go back to the root directory. As PikaVirus is a NextFlow pipeline, we will use a *config* file for it. This can be found inside of the PikaVirus template directory we have created (which, to this day, is placed in `/data/bi/pipelines/TEMPLATES/PIKAVIRUS_TEMPLATE`). This time, we will copy it inside of the `DOC` directory. 
 
 ```
+cd ..
 PIKAVIRUS_TEMPLATE=/data/bi/pipelines/TEMPLATES/PIKAVIRUS_TEMPLATE
 cp $PIKAVIRUS_TEMPLATE/DOC/hpc_slurm_pikavirus.config DOC
 ```
