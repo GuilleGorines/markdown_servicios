@@ -111,7 +111,8 @@ The lablog will create several elements:
 Now, the only step left is preparing the HPC modules for this pipeline, and running said pipeline
 
 ```
-module load Nextflow singularity
+module load Nextflow/21.10.6
+module load singularity
 bash _01_nf_assembly.sh
 ```
 
@@ -186,7 +187,8 @@ cp $ASSEMBLY_TEMPLATE/ANALYSIS/ANALYSIS01_ASSEMBLY/lablog .
 bash lablog [ + / - ]
 ```
 ```
-module load Nextflow singularity
+module load Nextflow/21.10.6
+module load singularity
 bash _01_nf_assembly.sh
 ```
 ```
