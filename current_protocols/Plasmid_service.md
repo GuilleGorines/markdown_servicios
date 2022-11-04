@@ -2,8 +2,9 @@
 mkdir $SERVICE_FOLDER_NAME && cd $_
 mkdir ANALYSIS DOC RAW REFERENCES RESULTS TMP
 cd RAW
-fill raw directory (use fastq-dump --gzip --split-files from the sra toolkit if from SRA, it can be found in the sratools env inside of the HPC)
 ```
+fill raw directory (use fastq-dump --gzip --split-files from the sra toolkit if from SRA, it can be found in the sratools env inside of the HPC)
+
 
 ```
 cd ..
