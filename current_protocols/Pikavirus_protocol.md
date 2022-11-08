@@ -143,7 +143,7 @@ bash _01_copy_folder.sh
 cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME/ANALYSIS/*PIKAVIRUS*
 cp $PIKAVIRUS_TEMPLATE/ANALYSIS/ANALYSIS01_PIKAVIRUS/lablog .
 bash lablog
-module load Nextflow
+module load Nextflow/21.10.6
 bash _01_nf_pikavirus.sh
 ```
 
