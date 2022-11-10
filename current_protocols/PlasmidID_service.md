@@ -34,10 +34,14 @@ bash _01_nf_assembly.sh
 cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME/ANALYSIS/*PLASMIDID
 PLASMIDID_TEMPLATE="/data/bi/pipelines/TEMPLATES/PLASMIDID_TEMPLATE"
 cp $PLASMIDID_TEMPLATE/ANALYSIS/ANALYSIS02_PLASMIDID/* .
-ln -s ../samples_id.txt .
-
+bash lablog
 module load singularity
-
+bash _01_plasmidID.sh
+```
+```
+bash _02_summary_table.sh
+```
 ```
 cd ..
 bash _02_copy_back.sh
+```
