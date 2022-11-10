@@ -15,8 +15,8 @@ cd RAW
 
 ```
 cd ..
-MTBSEQ_TEMPLATE="/data/bi/pipelines/TEMPLATES/MTBSEQ_TEMPLATE"
-cp $MTBSEQ_TEMPLATE/DOC/hpc_slurm_assembly.config DOC
+ASSEMBLY_TEMPLATE="/data/bi/pipelines/TEMPLATES/ASSEMBLY_TEMPLATE"
+cp $ASSEMBLY_TEMPLATE/DOC/hpc_slurm_assembly.config DOC
 cd ANALYSIS
 MTBSEQ_TEMPLATE="/data/bi/pipelines/TEMPLATES/MTBSEQ_TEMPLATE"
 cp $MTBSEQ_TEMPLATE/ANALYSIS/lablog .
