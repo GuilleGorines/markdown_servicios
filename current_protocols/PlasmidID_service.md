@@ -21,14 +21,23 @@ bash _01_copy_folder.sh
 ```
 cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME
 cd ANALYSIS/*ANALYSIS01*
-ASSEMBLY_TEMPLATE="/data/bi/pipelines/TEMPLATES/ASSEMBLY_TEMPLATE"
-cp $ASSEMBLY_TEMPLATE/ANALYSIS/ANALYSIS01_ASSEMBLY/lablog .
+PLASMIDID_TEMPLATE="/data/bi/pipelines/TEMPLATES/PLASMIDID_TEMPLATE"
+cp $PLASMIDID_TEMPLATE/ANALYSIS/ANALYSIS01_ASSEMBLY/lablog .
 ```
 ```
 bash lablog [ + / - ]
 module load Nextflow/21.10.6
 module load singularity
 bash _01_nf_assembly.sh
+```
+```
+cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME/ANALYSIS/*PLASMIDID
+PLASMIDID_TEMPLATE="/data/bi/pipelines/TEMPLATES/PLASMIDID_TEMPLATE"
+cp $PLASMIDID_TEMPLATE/ANALYSIS/ANALYSIS02_PLASMIDID/* .
+ln -s ../samples_id.txt .
+
+module load singularity
+
 ```
 cd ..
 bash _02_copy_back.sh
