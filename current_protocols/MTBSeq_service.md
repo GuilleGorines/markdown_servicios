@@ -41,7 +41,7 @@ bash _01_nf_assembly.sh
 Wait a while for the assembly to end
 
 ```
-cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME/ANALUSIS/*MTBSEQ
+cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME/ANALYSIS/*MTBSEQ
 mkdir logs
 MTBSEQ_TEMPLATE="/data/bi/pipelines/TEMPLATES/MTBSEQ_TEMPLATE"
 cp $MTBSEQ_TEMPLATE/ANALYSIS/ANALYSIS01_MTBSEQ/05-MTBSeq/lablog .
