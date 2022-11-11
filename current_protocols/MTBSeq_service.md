@@ -42,9 +42,8 @@ Wait a while for the assembly to end
 
 ```
 cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME/ANALYSIS/*MTBSEQ
-mkdir logs
 MTBSEQ_TEMPLATE="/data/bi/pipelines/TEMPLATES/MTBSEQ_TEMPLATE"
-cp $MTBSEQ_TEMPLATE/ANALYSIS/ANALYSIS01_MTBSEQ/05-MTBSeq/lablog .
+cp $MTBSEQ_TEMPLATE/ANALYSIS/ANALYSIS02_MTBSEQ/lablog .
 bash lablog
 conda activate mtbseq
 bash _00_prepareRaw.sh
