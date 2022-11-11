@@ -31,9 +31,10 @@ cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME
 ```
 cd ANALYSIS/*ANALYSIS01*
 MTBSEQ_TEMPLATE="/data/bi/pipelines/TEMPLATES/MTBSEQ_TEMPLATE"
-cp $MTBSEQ_TEMPLATE/ANALYSIS/ANALYSIS01_MTBSEQ/lablog .
+cp $MTBSEQ_TEMPLATE/ANALYSIS/ANALYSIS01_ASSEMBLY/lablog .
 bash lablog
-module load Nextflow singularity
+module load Nextflow/21.10.6
+module load singularity
 bash _01_nf_assembly.sh
 ```
 
