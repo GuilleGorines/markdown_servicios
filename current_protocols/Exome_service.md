@@ -17,7 +17,6 @@ bash _01*
 cd /data/bi/scratch_tmp/bi/$SERVICE_FOLDER_NAME/ANALYSIS/*ANALYSIS01_EXOME
 ```
 
-
 ```
 EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
 cp $EXOME_TEMPLATE/ANALYSIS/ANALYSIS01_EXOME/lablog .
@@ -25,4 +24,18 @@ bash lablog
 module load Nextflow/21.10.6
 module load singularity
 bash _01*
+```
+
+```
+cd 02-postprocessing
+EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
+cp $EXOME_TEMPLATE/ANALYSIS/ANALYSIS01_EXOME/02-postprocessing/lablog .
+bash lablog
+```
+
+```
+cd 03-annotation
+EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
+cp $EXOME_TEMPLATE/ANALYSIS/ANALYSIS01_EXOME/03-annotation/lablog .
+bash lablog
 ```
