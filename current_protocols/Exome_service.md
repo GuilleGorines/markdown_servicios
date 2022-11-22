@@ -41,11 +41,58 @@ cd 02-postprocessing
 EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
 cp $EXOME_TEMPLATE/ANALYSIS/ANALYSIS01_EXOME/02-postprocessing/lablog .
 bash lablog
+bash _01*
+bash _02*
+```
+Wait for those processes to end
+```
+bash _03*
+bash _04*
+```
+Wait for those to end as well
+```
+bash _05*
+```
+Wait again
+```
+bash _06*
 ```
 
 ```
-cd 03-annotation
+cd ../03-annotation
 EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
 cp $EXOME_TEMPLATE/ANALYSIS/ANALYSIS01_EXOME/03-annotation/lablog .
 bash lablog
+bash _01*
+```
+
+```
+conda activate nf-core-sarek-2.7.1
+bash _02*
+```
+
+```
+bash _03*
+```
+
+```
+conda activate VEP
+bash _04*
+```
+
+```
+bash _05*
+conda activate nf-core-sarek-2.7.1
+bash _06*
+```
+
+```
+conda activate nf-core-sarek-2.6-fix-gatk
+bash _07*
+```
+
+```
+bash _08*
+module load Java/jdk-1.8.0.144
+bash _09*
 ```
