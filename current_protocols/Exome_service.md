@@ -9,6 +9,17 @@ Fill the RAW directory with the appropriate samples
 cd ..
 EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
 cp $EXOME_TEMPLATE/DOC/hpc_slurm_sarek.config DOC
+```
+Now, get the **appropriate bed file** from the template:
+
+| Kit | Commmand |
+| ------------- | ------------- |
+| NEXTERA FLEX for enrichment by Illumina  | `cp $EXOME_TEMPLATE/REFERENCES/Nextera_flex_for_enrichment–Illumina/* REFERENCES`  |
+| XGEN exome research panel  | `cp $EXOME_TEMPLATE/REFERENCES/xgen-exome-research-panel/* REFERENCES`  |
+| KAPA exome research panel | `cp $EXOME_TEMPLATE/REFERENCES/KAPA_HyperExome_capture/* REFERENCES`|
+
+
+```
 cd ANALYSIS
 EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
 cp $EXOME_TEMPLATE/ANALYSIS/lablog .
