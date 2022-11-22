@@ -3,7 +3,7 @@ mkdir $SERVICE_FOLDER_NAME && cd $_
 mkdir ANALYSIS DOC RAW REFERENCES RESULTS TMP
 cd RAW  
 ```
-Fill the RAW directory with the appropriate samples
+Fill the RAW directory with the corresponding samples
 
 ```
 cd ..
@@ -17,7 +17,6 @@ Now, get the **appropriate bed file** from the template:
 | NEXTERA FLEX for enrichment by Illumina  | `cp $EXOME_TEMPLATE/REFERENCES/Nextera_flex_for_enrichment–Illumina/* REFERENCES`  |
 | XGEN exome research panel  | `cp $EXOME_TEMPLATE/REFERENCES/xgen-exome-research-panel/* REFERENCES`  |
 | KAPA exome research panel | `cp $EXOME_TEMPLATE/REFERENCES/KAPA_HyperExome_capture/* REFERENCES`|
-
 
 ```
 cd ANALYSIS
