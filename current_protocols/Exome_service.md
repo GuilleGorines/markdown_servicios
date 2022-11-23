@@ -77,7 +77,7 @@ bash _03*
 ```
 
 ```
-conda activate VEP
+conda activate vep
 bash _04*
 ```
 
