@@ -41,6 +41,7 @@ cd 02-postprocessing
 EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
 cp $EXOME_TEMPLATE/ANALYSIS/ANALYSIS01_EXOME/02-postprocessing/lablog .
 bash lablog
+conda activate nf-core-sarek-2.7.1
 bash _01*
 bash _02*
 ```
