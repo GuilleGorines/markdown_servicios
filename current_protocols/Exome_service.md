@@ -97,3 +97,17 @@ bash _08*
 module load Java/jdk-1.8.0.144
 bash _09*
 ```
+
+```
+cd ../99*
+EXOME_TEMPLATE=/data/bi/pipelines/TEMPLATES/EXOME_TEMPLATE
+cp $EXOME_TEMPLATE/ANALYSIS/ANALYSIS01_EXOME/99-stats/lablog .
+bash lablog
+module load picard
+bash _01*
+```
+
+```
+bash _02*
+
+```
