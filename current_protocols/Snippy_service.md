@@ -11,6 +11,7 @@ cd ..
 cd REFERENCES
 ```
 **Fill with the proper reference**
+**MAKE SURE THE REFERENCE IS NOT COMPRESSED**
 
 ```
 cd ..
@@ -58,6 +59,28 @@ bash _01*
 cd ../04-snippy
 SNIPPY_TEMPLATE="/data/bi/pipelines/TEMPLATES/SNIPPY_TEMPLATE"
 cp $SNIPPY_TEMPLATE/ANALYSIS/ANALYSIS01_SNIPPY/04-snippy/lablog .
+conda activate snippy
+bash lablog
+bash _00*
+```
+```
+bash _01*
+```
+```
+bash _02
+```
+```
+cd ../05-iqtree
+SNIPPY_TEMPLATE="/data/bi/pipelines/TEMPLATES/SNIPPY_TEMPLATE"
+cp $SNIPPY_TEMPLATE/ANALYSIS/ANALYSIS01_SNIPPY/05-iqtree/lablog .
+conda activate iqtree
+bash lablog
+bash _01*
+```
+```
+cd ../99-stats
+SNIPPY_TEMPLATE="/data/bi/pipelines/TEMPLATES/SNIPPY_TEMPLATE"
+cp $SNIPPY_TEMPLATE/ANALYSIS/ANALYSIS01_SNIPPY/99-stats/lablog .
 bash lablog
 
 ```
