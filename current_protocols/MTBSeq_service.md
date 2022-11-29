@@ -22,7 +22,7 @@ MTBSEQ_TEMPLATE="/data/bi/pipelines/TEMPLATES/MTBSEQ_TEMPLATE"
 cp $MTBSEQ_TEMPLATE/ANALYSIS/lablog .
 bash lablog
 ls
-ls *ANALYSIS01_MTBSEQ
+ls *ANALYSIS02_MTBSEQ
 bash _01_copy_folder.sh
 ```
 ```
