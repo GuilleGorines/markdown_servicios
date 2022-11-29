@@ -8,6 +8,12 @@ cd RAW
 
 ```
 cd ..
+cd REFERENCES
+```
+**Fill with the proper reference**
+
+```
+cd ..
 cd ANALYSIS
 SNIPPY_TEMPLATE="/data/bi/pipelines/TEMPLATES/SNIPPY_TEMPLATE"
 cp $SNIPPY_TEMPLATE/ANALYSIS/lablog .
