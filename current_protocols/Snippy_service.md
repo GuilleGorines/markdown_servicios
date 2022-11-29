@@ -67,7 +67,7 @@ bash _00*
 bash _01*
 ```
 ```
-bash _02
+bash _02*
 ```
 ```
 cd ../05-iqtree
