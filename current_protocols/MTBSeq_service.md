@@ -55,6 +55,28 @@ Wait another while for the MTBSeq to end
 ```
 bash _03_gather_results
 ```
+**IF THE SNP MATRIX IS REQUIRED:**
+
+```
+mkdir all_samples
+cd all_samples
+MTBSEQ_TEMPLATE="/data/bi/pipelines/TEMPLATES/MTBSEQ_TEMPLATE"
+cp $MTBSEQ_TEMPLATE/ANALYSIS/ANALYSIS02_MTBSEQ/all_samples/lablog .
+conda activate mtbseq
+bash lablog
+# NOTE: STILL TESTING WHAT MODULES TO UNLOAD FOR JAVA TO BE SET IN THE 1.8 VERSION NEEDED TO WORK
+bash _01*
+```
+
+```
+bash _02*
+```
+
+```
+bash _03*
+```
+
+
 ```
 cd ../..
 bash _02_copy_back.sh
