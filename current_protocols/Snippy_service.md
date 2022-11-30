@@ -84,5 +84,8 @@ cp $SNIPPY_TEMPLATE/ANALYSIS/ANALYSIS01_SNIPPY/99-stats/lablog .
 module load picard
 conda activate samtools
 bash lablog
+bash _00*
 
 ```
+
+
