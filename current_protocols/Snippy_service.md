@@ -59,7 +59,7 @@ bash _01*
 cd ../04-snippy
 SNIPPY_TEMPLATE="/data/bi/pipelines/TEMPLATES/SNIPPY_TEMPLATE"
 cp $SNIPPY_TEMPLATE/ANALYSIS/ANALYSIS01_SNIPPY/04-snippy/lablog .
-conda activate snippy
+conda activate snippy_v4.6.0
 bash lablog
 bash _00*
 ```
