@@ -203,6 +203,26 @@ conda activate buisciii-tools
 bu-isciii new-service $RESOLUTION
 ```
 Choose if you want to create a folder for it (normally we would, unless its a new resolution for an already-created service), and the related service (in the assembly context, _assembly\_annotation_ would be the most adequate.
+```
+cd $(echo $RESOLUTION |cut -d"." -f1)*
+conda activate buisciii-tools
+bu-isciii scratch --direction Service_to_scratch $RESOLUTION
+cd /data/bi/scratch_tmp/bi/$(echo $RESOLUTION |cut -d"." -f1)*/ANALYSIS
+bash lablog
+cd *ANALYSIS01_ASSEMBLY
+```
+
+The process is exactly the same as before
+
+```
+bash lablog [ + / - ]
+```
+
+```
+module load Nextflow/21.10.6
+module load singularity
+bash _01_nf_assembly.sh
+```
 
 
 
