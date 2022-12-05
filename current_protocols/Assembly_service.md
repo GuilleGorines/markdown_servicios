@@ -195,6 +195,14 @@ bash _01_nf_assembly.sh
 cd ..
 bash _02_copy_back.sh
 ```
+## Using the BU-ISCIII Tools
+This service can be easily performed using the BU-ISCIII tools as well. This avoids particularly tedious steps, such as sample gathering or cleaning.
+
+```
+conda activate buisciii-tools
+bu-isciii new-service $RESOLUTION
+```
+Choose if you want to create a folder for it (normally we would, unless its a new resolution for an already-created service), and the related service (in the assembly context, _assembly\_annotation_ would be the most adequate.
 
 
 
