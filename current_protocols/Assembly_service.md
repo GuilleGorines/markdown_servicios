@@ -226,7 +226,7 @@ bash _01_nf_assembly.sh
 When it is finished, lets get it back to its rightful place
 
 ```
-cd /data/bi/scratch_tmp/
+cd /data/bi/scratch_tmp/bi
 bu-isciii scratch --direction Scratch_to_service $RESOLUTION
 bu-isciii scratch --direction Remove_scratch $RESOLUTION
 cd /data/bi/services_and_colaborations/CNM/bacteriology
