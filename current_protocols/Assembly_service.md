@@ -191,6 +191,17 @@ module load Nextflow/21.10.6
 module load singularity
 bash _01_nf_assembly.sh
 ```
+If we needed a BLAST analysis (for instance, for an unknown bacteria or strain), then do the following:
+```
+cd ..
+mkdir $(date '+%Y%m%d')_ANALYSIS02_BLAST && cd $_
+ASSEMBLY_TEMPLATE="/data/bi/pipelines/TEMPLATES/ASSEMBLY_TEMPLATE"
+$ASSEMBLY_TEMPLATE/ANALYSIS/ANALYSIS02_BLAST/lablog .
+
+
+```
+
+
 ```
 cd ..
 bash _02_copy_back.sh
