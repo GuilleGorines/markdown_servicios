@@ -32,4 +32,7 @@ To accept a service, which is the same as **creating a resolution** for it, fill
 * **Acronym Service Name**: each service will need its own, unique, acronym. The acronym for this will vary depending on what to do in this specific service. It must always be followed by a number, so that we can differentiate between services where we perform the same protocol on different samples.
 
 * **Assign to user**: the user that will be assigned with this service. This allows both getting a service for yourself, or for anyone else you want.
-*  
+
+* **User notes**: any notes to take into account. If none, just type "None!" or a joke or something. 
+
+Once everything is set and ready, click _Submit_ and you will be taken to the _Pending Services_ application. You will notice that the service you just accepted is no longer in the _Recorded services_ tab. You will find it inside the _Services in Queued_
